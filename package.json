@@ -1,0 +1,44 @@
+{
+  "name": "deadfire-ai",
+  "version": "1.0.0",
+  "description": "Add later",
+  "main": "index.js",
+  "author": "Sketchbuch",
+  "license": "MIT",
+  "scripts": {
+    "webserver": "node src/server/server.js",
+    "wpds": "yarn webpack-dev-server",
+    "www": "yarn webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
+    "html-webpack-plugin": "^3.2.0",
+    "koa": "^2.7.0",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "prettier": "1.18.2",
+    "style-loader": "^0.23.1",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
