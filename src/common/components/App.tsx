@@ -1,6 +1,5 @@
 import React from 'react';
-
-import '../styles/index.css';
+import './App.css';
 
 interface AppProps {
   title: string;
@@ -8,8 +7,8 @@ interface AppProps {
 
 const App = ({ title = 'Sketchbuch' }: AppProps): JSX.Element => {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div className="App">
+      <h1 className="App__Title">{title}</h1>
     </div>
   );
 };

@@ -16,7 +16,7 @@ module.exports = {
     hot: true,
     inline: true,
     port: 3000,
-    progress: true,
+    progress: true
   },
   devtool: 'source-map',
   entry: [`${SRC_PATH}/client/index.tsx`],
@@ -26,47 +26,47 @@ module.exports = {
       {
         exclude: /node_modules/,
         loader: ['react-hot', 'babel-loader'],
-        test: /\.jsx?$/,
+        test: /\.jsx?$/
       },
       {
         exclude: /node_modules/,
         loader: 'ts-loader',
         options: {
           experimentalWatchApi: true,
-          transpileOnly: true,
+          transpileOnly: true
         },
-        test: /\.ts(x?)$/,
+        test: /\.ts(x?)$/
       },
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: 'css-loader'
           },
-          'postcss-loader',
-        ],
-      },
-    ],
+          'postcss-loader'
+        ]
+      }
+    ]
   },
   output: {
     filename: 'js/app.js',
     path: BUILD_PATH,
-    publicPath: '/',
+    publicPath: '/'
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlwebpackPlugin({
       hash: true,
       template: SRC_PATH.concat('/common/index.html'),
-      title: 'Deadfire AI',
+      title: 'Deadfire AI'
     }),
     new MiniCssExtractPlugin({
-      filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css',
+      filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.css'],
-  },
+    extensions: ['.ts', '.tsx', '.js', '.json', '.css']
+  }
 };
