@@ -5,7 +5,6 @@ const app = new Koa();
 // log all events to the terminal
 app.use(logger());
 
-
 app.use(async ctx => {
   ctx.body = 'Hello World 2';
 });
