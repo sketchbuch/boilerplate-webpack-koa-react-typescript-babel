@@ -59,7 +59,8 @@ module.exports = {
     new HtmlwebpackPlugin({
       hash: true,
       template: SRC_PATH.concat('/common/index.html'),
-      title: 'Deadfire AI'
+      title: 'Deadfire AI',
+      version: JSON.stringify(require('./package.json').version)
     }),
     new MiniCssExtractPlugin({
       filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'

@@ -23,5 +23,7 @@ require('./routes/basic')({ router });
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const server = app.listen(3000);
+const server = app.listen(3000, () => {
+  console.log(`App server started, listening on port: 3000`);
+});
 module.exports = server;
