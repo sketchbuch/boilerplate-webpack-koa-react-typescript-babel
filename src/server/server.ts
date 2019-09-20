@@ -1,10 +1,12 @@
 import Koa from 'koa';
-import logger from 'koa-logger';
 import Router from 'koa-router';
+import logger from 'koa-logger';
 import allRoutes from './routes/basic';
+import serverInfo from './utils/serverInfo';
 
 const app: Koa = new Koa();
 const router: Router = new Router();
+const PORT: number = 3000;
 
 // log all events to the terminal
 app.use(logger());
@@ -25,7 +27,8 @@ allRoutes({ router });
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const server = app.listen(3000, () => {
-  console.log(`App server started, listening on port: 3000`);
+const server = app.listen(PORT, () => {
+  serverInfo(PORT);
 });
+
 export default server;
