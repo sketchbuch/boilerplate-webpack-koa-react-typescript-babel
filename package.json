@@ -31,7 +31,8 @@
     "server:wds": "webpack-dev-server --config webpack.client.config.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "yarn-audit": "yarn audit --json | yarn-audit-html --output audit-report.html"
   },
   "dependencies": {
     "html-webpack-plugin": "^3.2.0",
@@ -86,6 +87,7 @@
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.8.1",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "yarn-audit-html": "^1.1.0"
   }
 }
