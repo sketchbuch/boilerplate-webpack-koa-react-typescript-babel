@@ -2,7 +2,7 @@
   "name": "boilerplate-webpack-koa-react-typescript-babel",
   "version": "1.0.0",
   "description": "Boilerplate for a webpack / koa based react project using typescript & babel.",
-  "main": "index.js",
+  "main": "./build/server/js/server.js",
   "author": "Sketchbuch",
   "license": "MIT",
   "scripts": {
@@ -10,15 +10,16 @@
     "build:clean": "rimraf ./build/*",
     "build:client": "webpack --config webpack.client.config.js",
     "build:server": "webpack --config webpack.server.config.js",
-    "dev": "yarn build && yarn koa",
-    "koa": "node build/server/js/server.js",
+    "dev": "yarn build && yarn server:koa",
+    "dev:wds": "yarn build && yarn server:wds",
     "lint:css": "stylelint --config=.stylelintrc '{,!(.vscode|build|coverage|docs)/**/}*.{css,less,sass}'",
     "lint:js": "eslint --config .eslintrc --fix '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
     "lint:js:dry": "eslint --config .eslintrc --fix-dry-run '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
+    "server:koa": "node build/server/js/server.js",
+    "server:wds": "webpack-dev-server --config webpack.client.config.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
-    "wds": "webpack-dev-server"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "html-webpack-plugin": "^3.2.0",

@@ -14,10 +14,11 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
+    open: true,
     port: 3000,
     progress: true
   },
-  devtool: isProduction ? 'cheap-source-map' : 'source-map',
+  devtool: isProduction ? 'none' : 'source-map',
   entry: [`${SRC_PATH}/client/index.tsx`],
   mode: isProduction ? 'production' : 'development',
   module: {
@@ -25,7 +26,7 @@ module.exports = {
       {
         exclude: /node_modules/,
         loader: ['react-hot', 'babel-loader'],
-        test: /\.jsx?$/
+        test: /\.js(x?)?$/
       },
       {
         exclude: /node_modules/,
