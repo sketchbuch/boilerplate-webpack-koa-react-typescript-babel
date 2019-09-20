@@ -6,10 +6,12 @@
   "author": "Sketchbuch",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "build": "yarn build:clean && yarn build:server && yarn build:client",
+    "build:clean": "rimraf ./build/*",
+    "build:client": "webpack --config webpack.client.config.js",
+    "build:server": "webpack --config webpack.server.config.js",
     "dev": "yarn build && yarn koa",
-    "dev2": "webpack-dev-server",
-    "koa": "node src/server/server.js",
+    "koa": "node src/server/server.ts",
     "lint:css": "stylelint --config=.stylelintrc '{,!(.vscode|build|coverage|docs)/**/}*.{css,less,sass}'",
     "lint:js": "eslint --config .eslintrc --fix '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
     "lint:js:dry": "eslint --config .eslintrc --fix-dry-run '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
@@ -18,9 +20,6 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@types/react": "^16.8.24",
-    "@types/react-dom": "^16.8.5",
     "html-webpack-plugin": "^3.2.0",
     "koa": "^2.7.0",
     "koa-logger": "^3.2.0",
@@ -30,12 +29,18 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.17",
+    "@types/koa": "^2.0.49",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.0.42",
+    "@types/react": "^16.8.24",
+    "@types/react-dom": "^16.8.5",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
@@ -66,6 +71,6 @@
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2"
+    "webpack-node-externals": "^1.7.2"
   }
 }

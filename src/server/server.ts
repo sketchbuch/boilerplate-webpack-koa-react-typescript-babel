@@ -1,7 +1,10 @@
-const Koa = require('koa');
-const logger = require('koa-logger');
-const Router = require('koa-router');
-const app = new Koa();
+import Koa from 'koa';
+import logger from 'koa-logger';
+import Router from 'koa-router';
+import allRoutes from './routes/basic';
+
+const app: Koa = new Koa();
+const router: Router = new Router();
 
 // log all events to the terminal
 app.use(logger());
@@ -17,8 +20,7 @@ app.use(async (ctx, next) => {
   }
 });
 
-const router = new Router();
-require('./routes/basic')({ router });
+allRoutes({ router });
 
 app.use(router.routes());
 app.use(router.allowedMethods());
@@ -26,4 +28,4 @@ app.use(router.allowedMethods());
 const server = app.listen(3000, () => {
   console.log(`App server started, listening on port: 3000`);
 });
-module.exports = server;
+export default server;
