@@ -2,9 +2,21 @@
   "name": "boilerplate-webpack-koa-react-typescript-babel",
   "version": "1.0.0",
   "description": "Boilerplate for a webpack / koa based react project using typescript & babel.",
-  "main": "./build/server/js/server.js",
-  "author": "Sketchbuch",
+  "homepage": "https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel",
   "license": "MIT",
+  "main": "./build/server/js/server.js",
+  "private": true,
+  "author": {
+    "name": "sketchbuch",
+    "url": "https://github.com/sketchbuch"
+  },
+  "bugs": {
+    "url": "https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel.git"
+  },
   "scripts": {
     "build": "yarn build:clean && yarn build:server && yarn build:client",
     "build:clean": "rimraf ./build/*",
