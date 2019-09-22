@@ -4,7 +4,7 @@
   "description": "Boilerplate for a webpack / koa based react project using typescript & babel.",
   "homepage": "https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel",
   "license": "MIT",
-  "main": "./build/server/js/server.js",
+  "main": "./build/server.js",
   "private": true,
   "author": {
     "name": "sketchbuch",
@@ -18,6 +18,7 @@
     "url": "https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel.git"
   },
   "scripts": {
+    "audit:html": "yarn audit --json | yarn-audit-html --output audit-report.html",
     "build": "yarn build:clean && yarn build:server && yarn build:client",
     "build:clean": "rimraf ./build/*",
     "build:client": "webpack --config webpack.client.config.js",
@@ -27,18 +28,20 @@
     "lint:css": "stylelint --config=.stylelintrc '{,!(.vscode|build|coverage|docs)/**/}*.{css,less,sass}'",
     "lint:js": "eslint --config .eslintrc --fix '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
     "lint:js:dry": "eslint --config .eslintrc --fix-dry-run '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
-    "server:koa": "node build/server/js/server.js",
+    "lint:ts": "tsc --jsx preserve --project ./",
+    "server:koa": "node build/server.js",
+    "server:koa:debug": "DEBUG=koa-send* node build/server.js",
     "server:wds": "webpack-dev-server --config webpack.client.config.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
-    "yarn-audit": "yarn audit --json | yarn-audit-html --output audit-report.html"
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "html-webpack-plugin": "^3.2.0",
     "koa": "^2.7.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -54,6 +57,7 @@
     "@types/koa": "^2.0.49",
     "@types/koa-logger": "^3.1.1",
     "@types/koa-router": "^7.0.42",
+    "@types/koa-static": "^4.0.1",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
     "babel-eslint": "^10.0.2",

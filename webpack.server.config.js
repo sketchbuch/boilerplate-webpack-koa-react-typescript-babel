@@ -42,7 +42,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'server/js/server.js',
+    filename: 'server.js',
     library: 'app',
     libraryTarget: 'commonjs2',
     path: BUILD_PATH,
@@ -50,7 +50,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: isProduction ? 'server/css/[hash].[name].css' : 'server/css/[name].css'
+      filename: isProduction ? 'public/css/[hash].[name].css' : 'public/css/[name].css'
     })
   ],
   resolve: {

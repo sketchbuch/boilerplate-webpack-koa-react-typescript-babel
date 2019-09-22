@@ -50,7 +50,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'client/js/app.js',
+    filename: 'public/js/app.js',
     path: BUILD_PATH,
     publicPath: '/'
   },
@@ -62,7 +62,7 @@ module.exports = {
       version: JSON.stringify(require('./package.json').version)
     }),
     new MiniCssExtractPlugin({
-      filename: isProduction ? 'client/css/[hash].[name].css' : 'client/css/[name].css'
+      filename: isProduction ? 'public/css/[hash].[name].css' : 'public/css/[name].css'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
