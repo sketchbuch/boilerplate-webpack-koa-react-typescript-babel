@@ -20,7 +20,7 @@
   "scripts": {
     "audit:html": "yarn audit --json | yarn-audit-html --output audit-report.html",
     "build": "yarn build:clean && yarn build:server && yarn build:client",
-    "build:clean": "rimraf ./build/*",
+    "build:clean": "rimraf ./{build,public}/*",
     "build:client": "webpack --config webpack.client.config.js",
     "build:server": "webpack --config webpack.server.config.js",
     "dev": "yarn build && yarn server:koa",

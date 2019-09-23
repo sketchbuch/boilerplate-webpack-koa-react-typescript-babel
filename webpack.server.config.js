@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
 const ROOT_PATH = path.resolve(__dirname);
-const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
+const OUTPUT_PATH = path.resolve(ROOT_PATH, 'build');
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 const isProduction = false;
 
@@ -45,12 +45,12 @@ module.exports = {
     filename: 'server.js',
     library: 'app',
     libraryTarget: 'commonjs2',
-    path: BUILD_PATH,
+    path: OUTPUT_PATH,
     publicPath: '/'
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: isProduction ? 'public/css/[hash].[name].css' : 'public/css/[name].css'
+      filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'
     })
   ],
   resolve: {

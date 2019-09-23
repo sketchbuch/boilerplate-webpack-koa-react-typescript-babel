@@ -4,13 +4,13 @@ const path = require('path');
 const webpack = require('webpack');
 
 const ROOT_PATH = path.resolve(__dirname);
-const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
+const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public');
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 const isProduction = false;
 
 module.exports = {
   devServer: {
-    contentBase: BUILD_PATH,
+    contentBase: OUTPUT_PATH,
     historyApiFallback: true,
     hot: true,
     inline: true,
@@ -50,8 +50,8 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'public/js/app.js',
-    path: BUILD_PATH,
+    filename: 'js/app.js',
+    path: OUTPUT_PATH,
     publicPath: '/'
   },
   plugins: [
@@ -62,7 +62,7 @@ module.exports = {
       version: JSON.stringify(require('./package.json').version)
     }),
     new MiniCssExtractPlugin({
-      filename: isProduction ? 'public/css/[hash].[name].css' : 'public/css/[name].css'
+      filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'
     }),
     new webpack.HotModuleReplacementPlugin()
   ],
