@@ -6,14 +6,7 @@
   "extends": "react",
   "parser": "babel-eslint",
   "rules": {
-    "indent": ["error", 2],
-    "typedef": [
-      "error",
-      "arrow-call-signature",
-      "arrow-parameter",
-      "call-signature",
-      "property-declaration"
-    ]
+    "indent": ["error", 2]
   },
   "settings": {
     "react": {
