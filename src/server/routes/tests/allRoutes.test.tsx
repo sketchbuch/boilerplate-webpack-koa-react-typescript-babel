@@ -6,13 +6,12 @@ import { ROUTE_ALL, ROUTE_TYPE_HTML } from '../../../constants/routes';
 import { ServerContext, ConsoleLog } from '../../../types';
 import { getTemplate } from '../../utils';
 import { renderToString } from 'react-dom/server';
-import { replaceWhitespace } from '../../../common/utils';
 
 describe('allRoutes()', () => {
+  const originalConsoleLog: ConsoleLog = console.log;
   const mockRouter: Router = new Router();
   let mockGet: jest.Mock;
   let mockLog: jest.Mock;
-  let originalConsoleLog: ConsoleLog;
 
   beforeEach(() => {
     mockGet = jest.fn();
@@ -22,6 +21,7 @@ describe('allRoutes()', () => {
 
   afterEach(() => {
     server.close();
+    console.log = originalConsoleLog;
   });
 
   test('Calls router.get() correct number of times', () => {

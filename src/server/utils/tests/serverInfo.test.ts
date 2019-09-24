@@ -6,7 +6,7 @@ describe('serverInfo()', () => {
   const PORT: number = 3000;
   const messages: string[] = ['Server started:', ` - http://localhost:${PORT}`];
   let mockLog: jest.Mock;
-  let originalConsoleLog: ConsoleLog;
+  let originalConsoleLog: ConsoleLog = console.log;
 
   beforeEach(() => {
     mockLog = jest.fn();
