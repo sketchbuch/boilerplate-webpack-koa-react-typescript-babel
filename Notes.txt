@@ -4,3 +4,4 @@
 * https://medium.com/@dahvinchee/how-to-set-up-a-react-typescript-project-from-scratch-with-babel-and-webpack-6b069881229d
 * https://www.freecodecamp.org/news/demystifying-reacts-server-side-render-de335d408fe4/
 * https://itnext.io/server-side-rendering-with-react-redux-and-react-router-fa5b67d4965e
+* https://hacksoft.blog/split-your-webpack-configuration-development-and-production/

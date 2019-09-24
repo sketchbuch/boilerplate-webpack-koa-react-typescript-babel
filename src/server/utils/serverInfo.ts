@@ -1,21 +1,10 @@
-const getMaxLen = (messages: string[]): number => {
-  var longest: string = messages.reduce((r: string, e: string): string => {
-    if (r.length < e.length) {
-      return e;
-    }
+import { SERVER_INFO_SEP } from '../../constants/server';
+import { getMaxLength } from '.';
 
-    return r;
-  });
+const serverInfo = (messages: string[]): void => {
+  const maxLen: number = getMaxLength(messages);
 
-  return longest.length;
-};
-
-const serverInfo = (port: number) => {
-  const SEP: string = '#';
-  const messages: string[] = ['Server started:', ` - http://localhost:${port}`];
-  const maxLen: number = getMaxLen(messages);
-
-  console.log(SEP.repeat(maxLen));
+  console.log(SERVER_INFO_SEP.repeat(maxLen));
   console.log('');
 
   messages.forEach((msg: string) => {
@@ -23,7 +12,7 @@ const serverInfo = (port: number) => {
   });
 
   console.log('');
-  console.log(SEP.repeat(maxLen));
+  console.log(SERVER_INFO_SEP.repeat(maxLen));
 };
 
 export default serverInfo;

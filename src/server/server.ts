@@ -2,7 +2,7 @@ import Koa from 'koa';
 import Router from 'koa-router';
 import logger from 'koa-logger';
 import serve from 'koa-static';
-import allRoutes from './routes/basic';
+import allRoutes from './routes/allRoutes';
 import serverInfo from './utils/serverInfo';
 import { ServerContext, ServerNext } from '../types';
 
@@ -32,7 +32,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 const server = app.listen(PORT, () => {
-  serverInfo(PORT);
+  serverInfo(['Server started:', ` - http://localhost:${PORT}`]);
 });
 
 export default server;
