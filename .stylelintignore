@@ -4,5 +4,6 @@
 /dist
 /docs
 /flow-typed
+/public
 /public/css/base/normalize.css
 /public/css/fonts

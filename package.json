@@ -23,15 +23,20 @@
     "build:clean": "rimraf ./{build,public}/*",
     "build:client": "webpack --config webpack.client.config.js",
     "build:server": "webpack --config webpack.server.config.js",
-    "dev": "yarn build && yarn server:koa",
+    "dev": "yarn build && yarn server",
     "dev:wds": "yarn build && yarn server:wds",
-    "lint:css": "stylelint --config=.stylelintrc '{,!(.vscode|build|coverage|docs)/**/}*.{css,less,sass}'",
-    "lint:js": "eslint --config .eslintrc --fix '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
-    "lint:js:dry": "eslint --config .eslintrc --fix-dry-run '{,!(.vscode|build|coverage|docs)/**/}*.{js,ts,tsx}'",
+    "lint:css": "stylelint --config=.stylelintrc 'src/**/*.{css,less,sass}'",
+    "lint:js": "eslint --config .eslintrc --fix 'src/**/*.{js,ts,tsx}'",
+    "lint:js:dry": "eslint --config .eslintrc --fix-dry-run 'src/**/*.{js,ts,tsx}'",
     "lint:ts": "tsc --jsx preserve --project ./",
-    "server:koa": "node build/server.js",
-    "server:koa:debug": "DEBUG=koa-send* node build/server.js",
-    "server:wds": "webpack-dev-server --config webpack.client.config.js",
+    "profile:client": "yarn profile:client:stats && yarn profile:client:analyze",
+    "profile:client:analyze": "webpack-bundle-analyzer stats.client.json",
+    "profile:client:stats": "webpack --profile --json --config webpack.client.config.js > stats.client.json",
+    "profile:server": "yarn profile:server:stats && yarn profile:server:analyze",
+    "profile:server:analyze": "webpack-bundle-analyzer stats.server.json",
+    "profile:server:stats": "webpack --profile --json --config webpack.server.config.js > stats.server.json",
+    "server": "node build/server.js",
+    "server:debug": "DEBUG=koa-send* node build/server.js",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch"
@@ -44,7 +49,8 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -92,8 +98,8 @@
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.1",
+    "webpack-bundle-analyzer": "^3.5.1",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.8.1",
     "webpack-node-externals": "^1.7.2",
     "yarn-audit-html": "^1.1.0"
   }
