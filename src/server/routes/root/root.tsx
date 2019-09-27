@@ -1,10 +1,10 @@
 import React from 'react';
 import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
-import App from '../../../common/components/App';
-import { ServerContext, ServerNext } from '../../../types';
+import App from '../../../common/components/App/App';
+import { ServerContext, ServerNext } from '../../../common/types';
 import { getTemplate } from '../../utils';
-import { ROUTE_ALL as routePath } from '../../../constants/routes';
+import { ROUTE_ALL as routePath } from '../../../common/constants/routes';
 
 const router = new Router();
 

@@ -49,8 +49,8 @@ module.exports = {
   plugins: [
     new HtmlwebpackPlugin({
       hash: true,
-      template: SRC_PATH.concat('/common/index.html'),
-      title: 'Deadfire AI',
+      template: SRC_PATH.concat('/client/templates/default.html'),
+      title: 'Client Title',
       version: JSON.stringify(packageJson.version)
     }),
     new MiniCssExtractPlugin({

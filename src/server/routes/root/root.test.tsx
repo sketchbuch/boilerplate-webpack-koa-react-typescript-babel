@@ -1,8 +1,8 @@
 import request from 'supertest';
 import { renderToString } from 'react-dom/server';
 import server from '../../server';
-import { ROUTE_ALL, ROUTE_TYPE_HTML } from '../../../constants/routes';
-import { ServerContext, ConsoleLog } from '../../../types';
+import { ROUTE_ALL, ROUTE_TYPE_HTML } from '../../../common/constants/routes';
+import { ServerContext, ConsoleLog } from '../../../common/types';
 import { getTemplate } from '../../utils';
 import { routeCallback, rootContent, routePath } from './root';
 

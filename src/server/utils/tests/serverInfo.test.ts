@@ -1,6 +1,6 @@
 import serverInfo from '../serverInfo';
-import { ConsoleLog } from '../../../types';
-import { SERVER_INFO_SEP } from '../../../constants/server';
+import { ConsoleLog } from '../../../common/types';
+import { SERVER_INFO_SEP } from '../../../common/constants/server';
 
 describe('serverInfo()', () => {
   const PORT: number = 3000;

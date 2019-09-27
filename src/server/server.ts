@@ -1,17 +1,16 @@
 import Koa from 'koa';
+import helmet from 'koa-helmet';
 import router from './routes';
 import logger from 'koa-logger';
 import serve from 'koa-static';
 import serverInfo from './utils/serverInfo';
-import { ServerContext, ServerNext } from '../types';
+import { ServerContext, ServerNext } from '../common/types';
 
 const app: Koa = new Koa();
 const PORT: number = 3000;
 
-// Static files
 app.use(serve('./public'));
-
-// Log all events to the terminal
+app.use(helmet());
 app.use(logger());
 
 // Error handling
