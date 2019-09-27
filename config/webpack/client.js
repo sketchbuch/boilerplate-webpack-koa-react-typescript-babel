@@ -1,24 +1,24 @@
+const HtmlwebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const nodeExternals = require('webpack-node-externals');
 const path = require('path');
+const webpack = require('webpack');
+const packageJson = require('../../package.json');
 
-const ROOT_PATH = path.resolve(__dirname);
-const OUTPUT_PATH = path.resolve(ROOT_PATH, 'build');
+const ROOT_PATH = path.resolve(__dirname, '../../');
+const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public');
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 const isProduction = false;
 
 module.exports = {
-  target: 'node',
-  devtool: 'none',
-  entry: [`${SRC_PATH}/server/server.ts`],
-  externals: [nodeExternals()],
+  devtool: isProduction ? 'none' : 'source-map',
+  entry: [`${SRC_PATH}/client/index.tsx`],
   mode: isProduction ? 'production' : 'development',
   module: {
     rules: [
       {
         exclude: /node_modules/,
-        loader: ['babel-loader'],
-        test: /\.js(x?)$/
+        loader: ['react-hot', 'babel-loader'],
+        test: /\.js(x?)?$/
       },
       {
         exclude: /node_modules/,
@@ -42,16 +42,21 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'server.js',
-    library: 'app',
-    libraryTarget: 'commonjs2',
+    filename: 'js/app.js',
     path: OUTPUT_PATH,
     publicPath: '/'
   },
   plugins: [
+    new HtmlwebpackPlugin({
+      hash: true,
+      template: SRC_PATH.concat('/common/index.html'),
+      title: 'Deadfire AI',
+      version: JSON.stringify(packageJson.version)
+    }),
     new MiniCssExtractPlugin({
       filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.css']
