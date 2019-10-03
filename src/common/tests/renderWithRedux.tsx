@@ -13,7 +13,7 @@ const renderWithRedux = (
   {
     initialState = {},
     store = createStore(reducers, initialState),
-  }: RenderWithReduxOptions
+  }: RenderWithReduxOptions = {}
 ): RenderWithRedux => {
   return {
     ...render(<Provider store={store}>{comp}</Provider>),

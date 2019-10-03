@@ -22,5 +22,5 @@
     "target": "esnext"
   },
   "exclude": ["build", "node_modules", "public/dist"],
-  "include": ["src/**/*"]
+  "include": ["config/jest/setup-jest.ts", "src/**/*"]
 }

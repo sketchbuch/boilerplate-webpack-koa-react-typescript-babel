@@ -26,8 +26,12 @@ const App = ({ title }: AppProps): JSX.Element => {
 
   return (
     <div className="App">
-      <h1 className="App__Title">{title}</h1>
-      {loaded === true ? <p>Loaded!</p> : <p>Loading...</p>}
+      <h1 className="App__title">{title}</h1>
+      {loaded === true ? (
+        <p id="app-loaded">Loaded!</p>
+      ) : (
+        <p id="app-loading">Loading...</p>
+      )}
     </div>
   );
 };
