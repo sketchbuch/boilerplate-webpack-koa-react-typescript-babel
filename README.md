@@ -20,6 +20,7 @@ This boilerplate uses:
 - React Helmet
 - React Router
 - React Testing Library (instead of Enzyme)
+- Redux
 - StyleLint
 - Typescript
 - Webpack
