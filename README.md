@@ -14,7 +14,7 @@ This boilerplate uses:
 - ESLint
 - Jest
 - Koa
-- PostCSS (to be replaced with styled components)
+- Styled Components
 - Prettier
 - React
 - React Helmet

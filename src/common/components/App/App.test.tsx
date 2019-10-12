@@ -1,10 +1,11 @@
 import React from 'react';
 import { wait } from '@testing-library/react';
-import App, { AppProps } from './App';
+import App from './App';
 import renderWithRedux from '../../tests/renderWithRedux';
+import { Props } from './App.interface';
 
 describe('<App />', () => {
-  const props: AppProps = {
+  const props: Props = {
     title: 'A headline',
   };
   const LOADING_TXT: string = 'Loading...';

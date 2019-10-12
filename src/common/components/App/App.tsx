@@ -1,22 +1,26 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import { APP_LOADED } from '../../constants/actions';
+import { Props, Store } from './App.interface';
 import { useSelector, useDispatch } from 'react-redux';
-import './App.css';
 
-export interface AppProps {
-  title: string;
-}
+const StyledApp = styled.div`
+  text-align: center;
+  font-size: 2rem;
+`;
 
-interface Store {
-  app: boolean;
-}
+const StyledP = styled.div`
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+`;
 
-const App = ({ title }: AppProps): JSX.Element => {
+const App = ({ title }: Props): JSX.Element => {
   const loaded: boolean = useSelector<Store, boolean>(state => state.app);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timer: NodeJS.Timeout = setTimeout(
+    const timer: number = window.setTimeout(
       () => dispatch({ type: APP_LOADED }),
       1000
     );
@@ -25,14 +29,14 @@ const App = ({ title }: AppProps): JSX.Element => {
   }, []);
 
   return (
-    <div className="App">
+    <StyledApp>
       <h1 className="App__title">{title}</h1>
       {loaded === true ? (
-        <p id="app-loaded">Loaded!</p>
+        <StyledP>Loaded!</StyledP>
       ) : (
-        <p id="app-loading">Loading...</p>
+        <StyledP>Loading...</StyledP>
       )}
-    </div>
+    </StyledApp>
   );
 };
 

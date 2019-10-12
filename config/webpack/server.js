@@ -1,4 +1,3 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
@@ -28,16 +27,6 @@ module.exports = {
           transpileOnly: true
         },
         test: /\.ts(x?)$/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader'
-          },
-          'postcss-loader'
-        ]
       }
     ]
   },
@@ -48,12 +37,7 @@ module.exports = {
     path: OUTPUT_PATH,
     publicPath: '/'
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'
-    })
-  ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.css']
+    extensions: ['.ts', '.tsx', '.js', '.json']
   }
 };

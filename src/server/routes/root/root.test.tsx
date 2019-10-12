@@ -1,6 +1,9 @@
+import * as React from 'react';
 import request from 'supertest';
+import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import server from '../../server';
+import store from '../../../common/store/redux';
 import { ROUTE_ALL, ROUTE_TYPE_HTML } from '../../../common/constants/routes';
 import { ServerContext, ConsoleLog } from '../../../common/types';
 import { getTemplate } from '../../utils';
@@ -29,7 +32,9 @@ describe('Route: root', () => {
     const next = jest.fn();
     await routeCallback(ctx, next);
 
-    const content: string = renderToString(rootContent);
+    const content: string = renderToString(
+      <Provider store={store}>{rootContent}</Provider>
+    );
     expect(ctx.body).toBe(getTemplate(content));
   });
 

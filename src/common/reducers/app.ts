@@ -6,11 +6,11 @@ export const initialState: State = false;
 
 const reducer = (state: State = initialState, action: ReduxAction): State => {
   switch (action.type) {
-    case APP_LOADED:
-      return true;
+  case APP_LOADED:
+    return true;
 
-    default:
-      return state;
+  default:
+    return state;
   }
 };
 

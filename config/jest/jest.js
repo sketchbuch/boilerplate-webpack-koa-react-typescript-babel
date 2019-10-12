@@ -1,9 +1,6 @@
 module.exports = {
   automock: false,
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  moduleNameMapper: {
-    "\\.(css|less)$": "identity-obj-proxy"
-  },
   rootDir: '../../',
   roots: [
     "<rootDir>/src"

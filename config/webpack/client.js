@@ -1,5 +1,4 @@
 const HtmlwebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const webpack = require('webpack');
 const packageJson = require('../../package.json');
@@ -28,16 +27,6 @@ module.exports = {
           transpileOnly: true
         },
         test: /\.ts(x?)$/
-      },
-      {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader'
-          },
-          'postcss-loader'
-        ]
       }
     ]
   },
@@ -53,12 +42,9 @@ module.exports = {
       title: 'Client Title',
       version: JSON.stringify(packageJson.version)
     }),
-    new MiniCssExtractPlugin({
-      filename: isProduction ? 'css/[hash].[name].css' : 'css/[name].css'
-    }),
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.css']
+    extensions: ['.ts', '.tsx', '.js', '.json']
   }
 };

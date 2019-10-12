@@ -8,7 +8,6 @@ const defaultTemplate: string = `
         content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
       />
       <title>Server Title</title>
-      <link href="/css/main.css" rel="stylesheet">
     </head>
 
     <body>
