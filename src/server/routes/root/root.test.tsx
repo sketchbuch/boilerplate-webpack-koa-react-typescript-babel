@@ -39,7 +39,7 @@ describe('Route: root', () => {
     const next = jest.fn();
     await routeCallback(ctx, next);
 
-    const content: string = renderToString(<Root />);
+    const content: string = renderToString(<Root isSsr location="/" />);
     expect(ctx.body).toBe(
       getTemplate({
         content,
