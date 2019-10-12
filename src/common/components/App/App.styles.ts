@@ -6,9 +6,20 @@ export const StyledApp = styled.div`
 `;
 StyledApp.displayName = 'StyledApp';
 
-export const StyledP = styled.div`
+export const Para = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
+  padding-top: 20px;
 `;
-StyledP.displayName = 'StyledP';
+Para.displayName = 'Para';
+
+export const LoadingMessage = styled(Para)`
+  color: #999;
+`;
+LoadingMessage.displayName = 'LoadingMessage';
+
+export const ErrorMessage = styled(Para)`
+  color: red;
+`;
+ErrorMessage.displayName = 'ErrorMessage';

@@ -5,7 +5,7 @@ import { wait } from '@testing-library/react';
 import App from './App';
 import renderWithRedux from '../../tests/renderWithRedux';
 import { Props } from './App.interface';
-import { StyledApp, StyledP } from './App.styles';
+import { ErrorMessage, LoadingMessage, Para, StyledApp } from './App.styles';
 
 describe('<App />', () => {
   const props: Props = {
@@ -55,13 +55,23 @@ describe('<App />', () => {
   });
 
   describe('Styled Components:', () => {
-    test('<StyledApp />', () => {
-      const tree = renderer.create(<StyledApp />).toJSON();
+    test('<ErrorMessage />', () => {
+      const tree = renderer.create(<ErrorMessage />).toJSON();
       expect(tree).toMatchSnapshot();
     });
 
-    test('<StyledP />', () => {
-      const tree = renderer.create(<StyledP />).toJSON();
+    test('<LoadingMessage />', () => {
+      const tree = renderer.create(<LoadingMessage />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    test('<Para />', () => {
+      const tree = renderer.create(<Para />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    test('<StyledApp />', () => {
+      const tree = renderer.create(<StyledApp />).toJSON();
       expect(tree).toMatchSnapshot();
     });
   });

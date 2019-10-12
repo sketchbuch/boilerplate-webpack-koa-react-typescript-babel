@@ -5,14 +5,7 @@ describe('getTemplateState()', () => {
   test('Renders template with content added', () => {
     const mockState: State = { app: false };
     const result: string = getTemplateState(mockState);
-    const expected: string = `
-    <script>
-      window.__PRELOADED_STATE__ = ${JSON.stringify(mockState).replace(
-        /</g,
-        '\\u003c'
-      )}
-    </script>
-  `;
+    const expected: string = JSON.stringify(mockState).replace(/</g, '\\u003c');
 
     expect(result).toBe(expected);
   });

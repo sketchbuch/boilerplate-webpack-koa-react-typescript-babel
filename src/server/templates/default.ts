@@ -13,7 +13,9 @@ const defaultTemplate: string = `
 
     <body>
       <div id="root">{content}</div>
-      {contentState}
+      <script id="root-state">
+        window.__PRELOADED_STATE__ = {contentState}
+      </script>
       <script type="text/javascript" src="/dist/js/app.js"></script>
     </body>
   </html>
