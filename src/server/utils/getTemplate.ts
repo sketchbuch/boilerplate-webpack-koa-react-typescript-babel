@@ -1,8 +1,8 @@
 import { defaultTemplate } from '../templates';
 import { replaceWhitespace } from '../../common/utils';
-import { StringObject } from '../../common/types';
+import { Placeholders } from '../../common/types';
 
-const getTemplate = (placeholders: StringObject): string => {
+const getTemplate = (placeholders: Placeholders): string => {
   const replacedTemplate = Object.keys(placeholders).reduce(
     (replacedTemplate: string, placeholder: string) => {
       return replacedTemplate.replace(
