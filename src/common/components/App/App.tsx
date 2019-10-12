@@ -4,7 +4,7 @@ import { Props, Store } from './App.interface';
 import { useSelector, useDispatch } from 'react-redux';
 import { StyledApp, StyledP } from './App.styles';
 
-const App = ({ title }: Props): JSX.Element => {
+const App: React.FC<Props> = ({ title }) => {
   const loaded: boolean = useSelector<Store, boolean>(state => state.app);
   const dispatch = useDispatch();
 

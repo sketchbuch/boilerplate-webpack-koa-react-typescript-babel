@@ -1,25 +1,32 @@
 import * as React from 'react';
 import request from 'supertest';
-import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
+import Root, { store } from '../../../common/components/Root/Root';
+import getTemplateState from '../../utils/getTemplateState';
 import server from '../../server';
-import store from '../../../common/store/redux';
 import { ROUTE_ALL, ROUTE_TYPE_HTML } from '../../../common/constants/routes';
 import { ServerContext, ConsoleLog } from '../../../common/types';
 import { getTemplate } from '../../utils';
-import { routeCallback, rootContent, routePath } from './root';
+import { routeCallback, routePath } from './root';
 
 describe('Route: root', () => {
+  const originalConsoleError: ConsoleLog = console.error;
   const originalConsoleLog: ConsoleLog = console.log;
-  let mockLog: jest.Mock;
 
   beforeEach(() => {
-    mockLog = jest.fn();
-    console.log = mockLog;
+    console.error = jest.fn((msg: string) => {
+      if (msg.includes('Warning: useLayoutEffect does nothing on the server')) {
+        return null;
+      } else {
+        originalConsoleError(msg);
+      }
+    });
+    console.log = jest.fn();
   });
 
   afterEach(() => {
     server.close();
+    console.error = originalConsoleError;
     console.log = originalConsoleLog;
   });
 
@@ -32,10 +39,13 @@ describe('Route: root', () => {
     const next = jest.fn();
     await routeCallback(ctx, next);
 
-    const content: string = renderToString(
-      <Provider store={store}>{rootContent}</Provider>
+    const content: string = renderToString(<Root />);
+    expect(ctx.body).toBe(
+      getTemplate({
+        content,
+        contentState: getTemplateState(store.getState()),
+      })
     );
-    expect(ctx.body).toBe(getTemplate(content));
   });
 
   test('Responds as expected', async () => {

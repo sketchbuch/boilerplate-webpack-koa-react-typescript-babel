@@ -12,6 +12,7 @@ const defaultTemplate: string = `
 
     <body>
       <div id="root">{content}</div>
+      {contentState}
       <script type="text/javascript" src="/js/app.js"></script>
     </body>
   </html>

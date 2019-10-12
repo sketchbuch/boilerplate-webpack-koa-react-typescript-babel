@@ -1,12 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import App from '../common/components/App/App';
-import store from '../common/store/redux';
+import Root from '../common/components/Root/Root';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App title="Stephen" />
-  </Provider>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Root />, document.getElementById('root'));
