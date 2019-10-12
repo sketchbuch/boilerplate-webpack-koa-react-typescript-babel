@@ -4,12 +4,12 @@ import { APP_LOADED } from '../../constants/actions';
 import { Props, Store } from './App.interface';
 import { useSelector, useDispatch } from 'react-redux';
 
-const StyledApp = styled.div`
+export const StyledApp = styled.div`
   text-align: center;
   font-size: 2rem;
 `;
 
-const StyledP = styled.div`
+export const StyledP = styled.div`
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
@@ -30,11 +30,11 @@ const App = ({ title }: Props): JSX.Element => {
 
   return (
     <StyledApp>
-      <h1 className="App__title">{title}</h1>
+      <h1 data-testid="app-title">{title}</h1>
       {loaded === true ? (
-        <StyledP>Loaded!</StyledP>
+        <StyledP data-testid="app-loaded">Loaded!</StyledP>
       ) : (
-        <StyledP>Loading...</StyledP>
+        <StyledP data-testid="app-loading">Loading...</StyledP>
       )}
     </StyledApp>
   );
