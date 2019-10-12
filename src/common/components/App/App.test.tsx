@@ -19,18 +19,6 @@ describe('<App />', () => {
     expect(getByText(props.title)).toBeInTheDocument();
   });
 
-  describe('Styled Components:', () => {
-    test('<StyledApp />', () => {
-      const tree = renderer.create(<StyledApp />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-
-    test('<StyledP />', () => {
-      const tree = renderer.create(<StyledP />).toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-  });
-
   test('Renders loading message', () => {
     const {
       getByTestId,
@@ -63,5 +51,17 @@ describe('<App />', () => {
         timeout: 1000,
       }
     );
+  });
+
+  describe('Styled Components:', () => {
+    test('<StyledApp />', () => {
+      const tree = renderer.create(<StyledApp />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
+    test('<StyledP />', () => {
+      const tree = renderer.create(<StyledP />).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
   });
 });
