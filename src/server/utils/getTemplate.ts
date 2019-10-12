@@ -1,5 +1,4 @@
 import { defaultTemplate } from '../templates';
-import { replaceWhitespace } from '../../common/utils';
 import { Placeholders } from '../../common/types';
 
 const getTemplate = (placeholders: Placeholders): string => {
@@ -7,13 +6,13 @@ const getTemplate = (placeholders: Placeholders): string => {
     (replacedTemplate: string, placeholder: string) => {
       return replacedTemplate.replace(
         `{${placeholder}}`,
-        placeholders[placeholder]
+        placeholders[placeholder].trim()
       );
     },
     defaultTemplate
   );
 
-  return replaceWhitespace(replacedTemplate);
+  return replacedTemplate.trim();
 };
 
 export default getTemplate;

@@ -7,13 +7,13 @@ const defaultTemplate: string = `
         name="viewport"
         content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
       />
-      <title>Server Title</title>
+      <title>App</title>
     </head>
 
     <body>
       <div id="root">{content}</div>
       {contentState}
-      <script type="text/javascript" src="/js/app.js"></script>
+      <script type="text/javascript" src="/dist/js/app.js"></script>
     </body>
   </html>
 `;

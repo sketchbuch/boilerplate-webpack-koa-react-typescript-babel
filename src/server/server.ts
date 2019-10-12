@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import helmet from 'koa-helmet';
-import router from './routes';
 import logger from 'koa-logger';
+import router from './routes';
 import serve from 'koa-static';
 import serverInfo from './utils/serverInfo';
 import { ServerContext, ServerNext } from '../common/types';

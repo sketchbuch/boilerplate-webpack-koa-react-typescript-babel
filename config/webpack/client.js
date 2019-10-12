@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const packageJson = require('../../package.json');
 
 const ROOT_PATH = path.resolve(__dirname, '../../');
-const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public');
+const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 const isProduction = false;
 
