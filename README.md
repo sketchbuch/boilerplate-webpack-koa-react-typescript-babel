@@ -2,7 +2,7 @@
 
 **(boilerplate-webpack-koa-react-typescript-babel)**
 
-Boilerplate for a webpack / koa based universal react app using babel, react-router, redux, and typescript
+Boilerplate for a webpack / koa based universal react app using babel, react-router, redux, and typescript.
 
 This is a **WIP** mainly for myself to try and learn more about building my own webstack for react / koa and typescript instead of just using create-react-app.
 
