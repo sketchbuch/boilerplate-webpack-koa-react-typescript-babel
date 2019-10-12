@@ -2,9 +2,10 @@ import React from 'react';
 import 'jest-styled-components';
 import renderer from 'react-test-renderer';
 import { wait } from '@testing-library/react';
-import App, { StyledApp, StyledP } from './App';
+import App from './App';
 import renderWithRedux from '../../tests/renderWithRedux';
 import { Props } from './App.interface';
+import { StyledApp, StyledP } from './App.styles';
 
 describe('<App />', () => {
   const props: Props = {

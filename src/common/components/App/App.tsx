@@ -1,19 +1,8 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import { APP_LOADED } from '../../constants/actions';
 import { Props, Store } from './App.interface';
 import { useSelector, useDispatch } from 'react-redux';
-
-export const StyledApp = styled.div`
-  text-align: center;
-  font-size: 2rem;
-`;
-
-export const StyledP = styled.div`
-  text-align: center;
-  font-weight: bold;
-  font-size: 1rem;
-`;
+import { StyledApp, StyledP } from './App.styles';
 
 const App = ({ title }: Props): JSX.Element => {
   const loaded: boolean = useSelector<Store, boolean>(state => state.app);
