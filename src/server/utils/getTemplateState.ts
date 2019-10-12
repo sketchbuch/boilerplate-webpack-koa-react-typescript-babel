@@ -2,7 +2,7 @@ import { State } from '../../common/types/redux/state.interface';
 
 const getTemplateState = (contentState: State): string => {
   return `
-    <script>
+    <script id="root-state">
       window.__PRELOADED_STATE__ = ${JSON.stringify(contentState).replace(
         /</g,
         '\\u003c'

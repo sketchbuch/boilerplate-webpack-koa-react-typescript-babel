@@ -5,3 +5,6 @@
 * https://www.freecodecamp.org/news/demystifying-reacts-server-side-render-de335d408fe4/
 * https://itnext.io/server-side-rendering-with-react-redux-and-react-router-fa5b67d4965e
 * https://hacksoft.blog/split-your-webpack-configuration-development-and-production/
+
+Styled Components:
+* https://medium.com/styled-components/the-simple-guide-to-server-side-rendering-react-with-styled-components-d31c6b2b8fbf
