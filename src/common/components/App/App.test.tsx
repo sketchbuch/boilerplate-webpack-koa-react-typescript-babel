@@ -2,10 +2,12 @@ import React from 'react';
 import 'jest-styled-components';
 import renderer from 'react-test-renderer';
 import { wait } from '@testing-library/react';
-import App from './App';
+import App, { Home, NotFound, Page2 } from './App';
 import renderWithRedux from '../../tests/renderWithRedux';
 import { Props } from './App.interface';
 import { ErrorMessage, LoadingMessage, Para, StyledApp } from './App.styles';
+import renderWithRouter from '../../tests/renderWithRouter';
+import { ROUTE_HOME, ROUTE_PAGE2 } from '../../constants/routes';
 
 describe('<App />', () => {
   const props: Props = {
@@ -73,6 +75,37 @@ describe('<App />', () => {
     test('<StyledApp />', () => {
       const tree = renderer.create(<StyledApp />).toJSON();
       expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe('Routes:', () => {
+    test('<Home /> renders correctly', () => {
+      const { getByTestId } = renderWithRouter(<Home />);
+      expect(getByTestId('app-home')).toBeInTheDocument();
+
+      const linkChild = getByTestId('app-home-link');
+      expect(linkChild).toBeInTheDocument();
+      expect(linkChild).toHaveAttribute('href', ROUTE_PAGE2);
+    });
+
+    test('<NotFound /> renders correctly', () => {
+      const { getByTestId } = renderWithRouter(<NotFound />);
+      expect(getByTestId('app-404')).toBeInTheDocument();
+      expect(getByTestId('app-404-description')).toBeInTheDocument();
+      expect(getByTestId('app-404-errmsg')).toBeInTheDocument();
+
+      const linkChild = getByTestId('app-404-link');
+      expect(linkChild).toBeInTheDocument();
+      expect(linkChild).toHaveAttribute('href', ROUTE_HOME);
+    });
+
+    test('<Page2 /> renders correctly', () => {
+      const { getByTestId } = renderWithRouter(<Page2 />);
+      expect(getByTestId('app-page2')).toBeInTheDocument();
+
+      const linkChild = getByTestId('app-page2-link');
+      expect(linkChild).toBeInTheDocument();
+      expect(linkChild).toHaveAttribute('href', ROUTE_HOME);
     });
   });
 });
