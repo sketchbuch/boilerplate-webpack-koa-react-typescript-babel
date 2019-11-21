@@ -24,7 +24,6 @@
     "build:client": "webpack --config ./config/webpack/client.js",
     "build:server": "webpack --config ./config/webpack/server.js ",
     "dev": "yarn build && yarn server",
-    "dev:wds": "yarn build && yarn server:wds",
     "lint:css": "stylelint './src/**/*.styles.ts'",
     "lint:js": "eslint --config .eslintrc --fix './src/**/*.{js,ts,tsx}'",
     "lint:js:dry": "eslint --config .eslintrc --fix-dry-run './src/**/*.{js,ts,tsx}'",
@@ -79,6 +78,8 @@
     "@types/react-test-renderer": "^16.9.0",
     "@types/styled-components": "^4.1.19",
     "@types/supertest": "^2.0.8",
+    "@types/webpack-dev-middleware": "^2.0.3",
+    "@types/webpack-hot-client": "^4.0.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
@@ -107,6 +108,8 @@
     "webpack": "^4.39.1",
     "webpack-bundle-analyzer": "^3.5.1",
     "webpack-cli": "^3.3.6",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-client": "^4.1.2",
     "webpack-node-externals": "^1.7.2",
     "yarn-audit-html": "^1.1.0"
   }

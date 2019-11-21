@@ -1,15 +1,28 @@
 import Koa from 'koa';
 import helmet from 'koa-helmet';
+// import hotClient from 'webpack-hot-client';
 import logger from 'koa-logger';
-import router from './routes';
+import middleware from 'webpack-dev-middleware';
 import serve from 'koa-static';
+import webpack from 'webpack';
+import router from './routes';
+import webpackConfig from '../../config/webpack/server';
 import serverInfo from './utils/serverInfo';
 import { ServerContext, ServerNext } from '../common/types';
 
 const app: Koa = new Koa();
 const PORT: number = 3000;
+const ONE_HOUR: number = 60 * 60;
 
-app.use(serve('./public'));
+// Static files
+app.use(
+  serve('./public', {
+    gzip: true,
+    maxage: ONE_HOUR,
+  })
+);
+
+// app.use(middleware(compiler, {}));
 app.use(helmet());
 app.use(logger());
 

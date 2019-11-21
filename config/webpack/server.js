@@ -4,12 +4,14 @@ const path = require('path');
 const ROOT_PATH = path.resolve(__dirname, '../../');
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'build');
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
-const isProduction = false;
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   target: 'node',
-  devtool: 'none',
-  entry: [`${SRC_PATH}/server/server.ts`],
+  devtool: false,
+  entry: [
+    `${SRC_PATH}/server/server.ts`
+  ],
   externals: [nodeExternals()],
   mode: isProduction ? 'production' : 'development',
   module: {

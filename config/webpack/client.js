@@ -6,17 +6,19 @@ const packageJson = require('../../package.json');
 const ROOT_PATH = path.resolve(__dirname, '../../');
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
-const isProduction = false;
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
-  devtool: isProduction ? 'none' : 'source-map',
-  entry: [`${SRC_PATH}/client/index.tsx`],
+  devtool: isProduction ? false : 'source-map',
+  entry: [
+    `${SRC_PATH}/client/client.tsx`
+  ],
   mode: isProduction ? 'production' : 'development',
   module: {
     rules: [
       {
         exclude: /node_modules/,
-        loader: ['react-hot', 'babel-loader'],
+        loader: ['babel-loader'],
         test: /\.js(x?)?$/
       },
       {
