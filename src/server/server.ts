@@ -1,18 +1,30 @@
-import Koa from 'koa';
+import Koa, {
+  Middleware,
+  ParameterizedContext,
+  DefaultState,
+  DefaultContext,
+} from 'koa';
 import helmet from 'koa-helmet';
-// import hotClient from 'webpack-hot-client';
 import logger from 'koa-logger';
-import middleware from 'webpack-dev-middleware';
 import serve from 'koa-static';
 import webpack from 'webpack';
 import router from './routes';
-import webpackConfig from '../../config/webpack/server';
 import serverInfo from './utils/serverInfo';
+import webpackConfig from '../../config/webpack/server';
 import { ServerContext, ServerNext } from '../common/types';
 
-const app: Koa = new Koa();
-const PORT: number = 3000;
 const ONE_HOUR: number = 60 * 60;
+const PORT: number = 3000;
+const app: Koa = new Koa();
+const compiler: webpack.Compiler = webpack(webpackConfig);
+const publicPath: string =
+  webpackConfig.output && webpackConfig.output.publicPath
+    ? webpackConfig.output.publicPath
+    : '';
+const filename: string | undefined =
+  webpackConfig.output &&
+  webpackConfig.output.filename &&
+  (webpackConfig.output.filename as string);
 
 // Static files
 app.use(
