@@ -10,24 +10,6 @@ const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 const config: webpack.Configuration = merge(commonConfig, {
   entry: [`${SRC_PATH}/client/client.tsx`],
-  module: {
-    rules: [
-      {
-        exclude: /node_modules/,
-        loader: ['babel-loader'],
-        test: /\.js(x?)?$/,
-      },
-      {
-        exclude: /node_modules/,
-        loader: 'ts-loader',
-        options: {
-          experimentalWatchApi: true,
-          transpileOnly: true,
-        },
-        test: /\.ts(x?)$/,
-      },
-    ],
-  },
   output: {
     filename: 'js/app.js',
     path: OUTPUT_PATH,

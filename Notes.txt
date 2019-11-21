@@ -13,3 +13,6 @@ Setup example:
 
 Styled Components:
 * https://medium.com/styled-components/the-simple-guide-to-server-side-rendering-react-with-styled-components-d31c6b2b8fbf
+
+Webpack:
+* https://stackoverflow.com/questions/56449654/module-exports-with-es6-import-for-webpack-config-ts-in-typescript

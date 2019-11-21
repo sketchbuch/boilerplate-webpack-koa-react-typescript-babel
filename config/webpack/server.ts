@@ -12,24 +12,6 @@ const config: webpack.Configuration = merge(commonConfig, {
   target: 'node',
   entry: [`${SRC_PATH}/server/server.ts`],
   externals: [nodeExternals()],
-  module: {
-    rules: [
-      {
-        exclude: /node_modules/,
-        loader: ['babel-loader'],
-        test: /\.js(x?)$/,
-      },
-      {
-        exclude: /node_modules/,
-        loader: 'ts-loader',
-        options: {
-          experimentalWatchApi: true,
-          transpileOnly: true,
-        },
-        test: /\.ts(x?)$/,
-      },
-    ],
-  },
   output: {
     filename: 'server.js',
     library: 'app',
