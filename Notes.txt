@@ -1,3 +1,4 @@
+Misc:
 * http://blog.joanboixados.com/building-a-boilerplate-for-a-koa-redux-react-application-including-webpack-mocha-and-sass/
 * https://medium.com/a-beginners-guide-for-webpack-2/index-html-using-html-webpack-plugin-85eabdb73474
 * https://www.freecodecamp.org/news/how-to-set-up-deploy-your-react-app-from-scratch-using-webpack-and-babel-a669891033d4/
@@ -6,5 +7,12 @@
 * https://itnext.io/server-side-rendering-with-react-redux-and-react-router-fa5b67d4965e
 * https://hacksoft.blog/split-your-webpack-configuration-development-and-production/
 
+Setup example:
+* http://blog.joanboixados.com/building-a-boilerplate-for-a-koa-redux-react-application-including-webpack-mocha-and-sass/
+* https://developpaper.com/environment-configuration-based-on-webpack-typescript-koa/
+
 Styled Components:
 * https://medium.com/styled-components/the-simple-guide-to-server-side-rendering-react-with-styled-components-d31c6b2b8fbf
+
+Webpack:
+* https://stackoverflow.com/questions/56449654/module-exports-with-es6-import-for-webpack-config-ts-in-typescript
