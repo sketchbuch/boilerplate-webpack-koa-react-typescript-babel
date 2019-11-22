@@ -30,3 +30,9 @@ This boilerplate uses:
 - StyleLint
 - Typescript
 - Webpack
+
+## Latest version
+
+v1.1.0
+
+See the [Change Log](https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel/blob/master/CHANGELOG.md) for latest changes
