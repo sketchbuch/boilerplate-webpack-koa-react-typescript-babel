@@ -1,8 +1,8 @@
 import path from 'path';
 import webpack from 'webpack';
 
-export const ROOT_PATH = path.resolve(__dirname, '../../');
-export const SRC_PATH = path.resolve(ROOT_PATH, 'src');
+export const ROOT_PATH: string = path.resolve(__dirname, '../../');
+export const SRC_PATH: string = path.resolve(ROOT_PATH, 'src');
 
 const isProduction = process.env.NODE_ENV === 'production';
 

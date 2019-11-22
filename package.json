@@ -39,6 +39,7 @@
     "test": "jest --config=./config/jest/jest.js"
   },
   "dependencies": {
+    "convict": "^5.2.0",
     "html-webpack-plugin": "^3.2.0",
     "koa": "^2.7.0",
     "koa-combine-routers": "^4.0.2",
@@ -63,6 +64,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.2.0",
+    "@types/convict": "^4.2.1",
     "@types/html-webpack-plugin": "^3.2.1",
     "@types/jest": "^24.0.17",
     "@types/koa": "^2.0.49",
