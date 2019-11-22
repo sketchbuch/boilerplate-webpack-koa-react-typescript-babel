@@ -48,10 +48,7 @@ app.use(async (ctx: ServerContext, next: ServerNext) => {
 app.use(router());
 
 const server = app.listen(config.get('server.port'), () => {
-  serverInfo([
-    'Server started:',
-    ` - ${config.get('server.url')}:${config.get('server.port')}`,
-  ]);
+  serverInfo(['Server started:', ` - ${config.get('server.url')}:${config.get('server.port')}`]);
 });
 
 export default server;

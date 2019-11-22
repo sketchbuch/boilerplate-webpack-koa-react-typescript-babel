@@ -22,5 +22,5 @@
     "target": "ES5"
   },
   "exclude": ["build", "node_modules", "public/dist"],
-  "include": ["config/jest/setup-jest.ts", "src/**/*"]
+  "include": ["config/jest/setup-jest.ts", "src/**/*", "config/**/*"]
 }

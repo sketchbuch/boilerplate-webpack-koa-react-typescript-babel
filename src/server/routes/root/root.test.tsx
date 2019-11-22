@@ -5,13 +5,13 @@ import Root, { store } from '../../../common/components/Root/Root';
 import getTemplateState from '../../utils/getTemplateState';
 import server from '../../server';
 import { ROUTE_ALL, ROUTE_TYPE_HTML } from '../../../common/constants/routes';
-import { ServerContext, ConsoleLog } from '../../../common/types';
+import { ServerContext } from '../../../common/types';
 import { getTemplate } from '../../utils';
 import { routeCallback, routePath } from './root';
 
 describe('Route: root', () => {
-  const originalConsoleError: ConsoleLog = console.error;
-  const originalConsoleLog: ConsoleLog = console.log;
+  const originalConsoleError = console.error;
+  const originalConsoleLog = console.log;
 
   beforeEach(() => {
     console.error = jest.fn((msg: string) => {
@@ -36,8 +36,7 @@ describe('Route: root', () => {
 
   test.skip('Renders correct content', async () => {
     const ctx = {} as ServerContext;
-    const next = jest.fn();
-    await routeCallback(ctx, next);
+    await routeCallback(ctx);
 
     const content: string = renderToString(<Root isSsr location="/" />);
     expect(ctx.body).toBe(

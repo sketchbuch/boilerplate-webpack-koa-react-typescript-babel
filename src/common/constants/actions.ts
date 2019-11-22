@@ -1,1 +1,1 @@
-export const APP_LOADED: string = 'APP_LOADED';
+export const APP_LOADED = 'APP_LOADED';

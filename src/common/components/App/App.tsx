@@ -49,20 +49,17 @@ const App: React.FC<Props> = ({ title }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const timer: number = window.setTimeout(
-      () => dispatch({ type: APP_LOADED }),
-      1000
-    );
+    const timer: number = window.setTimeout(() => dispatch({ type: APP_LOADED }), 1000);
 
-    return () => clearTimeout(timer);
+    return (): void => clearTimeout(timer);
   }, []);
 
   return (
     <StyledApp>
       <h1 data-testid="app-title">{title}</h1>
       <Para data-testid="app-description">
-        Boilerplate for a webpack / koa based universal react app using babel,
-        react-router, redux, and typescript
+        Boilerplate for a webpack / koa based universal react app using babel, react-router, redux,
+        and typescript
       </Para>
 
       {loaded === true ? (

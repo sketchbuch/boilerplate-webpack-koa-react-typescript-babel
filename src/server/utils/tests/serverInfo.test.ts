@@ -1,12 +1,11 @@
 import serverInfo from '../serverInfo';
-import { ConsoleLog } from '../../../common/types';
 import { SERVER_INFO_SEP } from '../../../common/constants/server';
 
 describe('serverInfo()', () => {
-  const PORT: number = 3000;
+  const PORT = 3000;
   const messages: string[] = ['Server started:', ` - http://localhost:${PORT}`];
   let mockLog: jest.Mock;
-  const originalConsoleLog: ConsoleLog = console.log;
+  const originalConsoleLog = console.log;
 
   beforeEach(() => {
     mockLog = jest.fn();

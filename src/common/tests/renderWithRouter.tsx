@@ -1,16 +1,11 @@
 import React from 'react';
 import { StaticRouter } from 'react-router';
 import { render } from '@testing-library/react';
-import {
-  RenderWithRouter,
-  RenderWithRouterOptions,
-  TestRouterProps,
-} from '../types';
+import { RenderWithRouter, RenderWithRouterOptions, TestRouterProps } from '../types';
 
-export const TestRouter: React.FC<TestRouterProps> = ({
-  children,
-  location,
-}) => <StaticRouter location={location}>{children}</StaticRouter>;
+export const TestRouter: React.FC<TestRouterProps> = ({ children, location }) => (
+  <StaticRouter location={location}>{children}</StaticRouter>
+);
 
 const renderWithRouter = (
   comp: React.ReactNode,

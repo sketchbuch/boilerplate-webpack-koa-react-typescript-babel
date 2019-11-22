@@ -13,8 +13,8 @@ describe('<App />', () => {
   const props: Props = {
     title: 'A headline',
   };
-  const LOADING_TXT: string = 'Loading...';
-  const LOADED_TXT: string = 'Loaded!';
+  const LOADING_TXT = 'Loading...';
+  const LOADED_TXT = 'Loaded!';
 
   test('Renders the title', () => {
     const { getByTestId, getByText } = renderWithRedux(<App {...props} />);
@@ -23,12 +23,9 @@ describe('<App />', () => {
   });
 
   test('Renders loading message', () => {
-    const {
-      getByTestId,
-      getByText,
-      queryByTestId,
-      queryByText,
-    } = renderWithRedux(<App {...props} />);
+    const { getByTestId, getByText, queryByTestId, queryByText } = renderWithRedux(
+      <App {...props} />
+    );
 
     expect(getByTestId('app-loading')).toBeInTheDocument();
     expect(queryByTestId('app-loaded')).toBeNull();
@@ -37,12 +34,9 @@ describe('<App />', () => {
   });
 
   test('Renders loaded message after 1 second', async () => {
-    const {
-      getByTestId,
-      getByText,
-      queryByTestId,
-      queryByText,
-    } = renderWithRedux(<App {...props} />);
+    const { getByTestId, getByText, queryByTestId, queryByText } = renderWithRedux(
+      <App {...props} />
+    );
     await wait(
       () => {
         expect(queryByTestId('app-loading')).toBeNull();

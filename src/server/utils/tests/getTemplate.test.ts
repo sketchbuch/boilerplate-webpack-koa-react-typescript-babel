@@ -4,8 +4,8 @@ import { defaultTemplate } from '../../templates';
 import { store } from '../../../common/components/Root/Root';
 
 describe('getTemplate()', () => {
-  const content: string = '<p>test content</p>';
-  const styles: string = '';
+  const content = '<p>test content</p>';
+  const styles = '';
 
   test('Renders template with content added', () => {
     const contentState: string = getTemplateState(store.getState());

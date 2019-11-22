@@ -1,1 +1,1 @@
-export const SERVER_INFO_SEP: string = '#';
+export const SERVER_INFO_SEP = '#';

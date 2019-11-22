@@ -1,4 +1,4 @@
-const defaultTemplate: string = `
+const defaultTemplate = `
   <!DOCTYPE html>
   <html>
     <head>

@@ -1,4 +1,4 @@
-const replaceWhitespace = (str: String): string => {
+const replaceWhitespace = (str: string): string => {
   return str.replace(/\s/g, '');
 };
 

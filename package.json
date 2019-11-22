@@ -24,10 +24,11 @@
     "build:client": "webpack --config ./config/webpack/client.ts",
     "build:server": "webpack --config ./config/webpack/server.ts ",
     "dev": "yarn build && yarn server",
-    "lint:css": "stylelint './src/**/*.styles.ts'",
-    "lint:js": "eslint --config .eslintrc --fix './src/**/*.{js,ts,tsx}'",
-    "lint:js:dry": "eslint --config .eslintrc --fix-dry-run './src/**/*.{js,ts,tsx}'",
+    "lint:css": "stylelint --config ./stylelint.config.js './src/**/*.styles.ts'",
+    "lint:js": "eslint --config ./.eslintrc.js --fix  --max-warnings=0 './{src,config}/**/*.{js,ts,tsx}'",
+    "lint:js:dry": "eslint --config ./.eslintrc.js --fix-dry-run  --max-warnings=0 './{src,config}/**/*.{js,ts,tsx}'",
     "lint:ts": "tsc --jsx preserve --project ./",
+    "lint:prettier": "prettier --write --config ./.prettierrc.js './{src,config}/**/*.{js,ts,tsx}'",
     "profile:client": "yarn profile:client:stats && yarn profile:client:analyze",
     "profile:client:analyze": "webpack-bundle-analyzer stats.client.json",
     "profile:client:stats": "webpack --profile --json --config ./config/webpack/client.ts > stats.client.json",
@@ -87,19 +88,25 @@
     "@types/webpack-hot-client": "^4.0.0",
     "@types/webpack-merge": "^4.1.5",
     "@types/webpack-node-externals": "^1.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
     "babel-eslint": "^10.0.2",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-styled-components": "^1.10.6",
     "clean-webpack-plugin": "^3.0.0",
     "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-config-react": "^1.1.7",
     "eslint-loader": "^2.2.1",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
     "jest-localstorage-mock": "^2.4.0",
     "jest-styled-components": "^6.3.3",
+    "lint-staged": "^9.4.3",
     "prettier": "^1.18.2",
     "react-hot-loader": "^4.12.10",
     "react-test-renderer": "^16.10.2",
@@ -121,5 +128,18 @@
     "webpack-merge": "^4.2.2",
     "webpack-node-externals": "^1.7.2",
     "yarn-audit-html": "^1.1.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn lint-staged",
+      "pre-commit": "yarn lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "yarn lint:js",
+      "yarn prettier",
+      "git add"
+    ]
   }
 }
