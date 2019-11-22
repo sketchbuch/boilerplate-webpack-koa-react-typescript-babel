@@ -63,6 +63,8 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
     "@testing-library/jest-dom": "^4.1.0",
     "@testing-library/react": "^9.2.0",
     "@types/convict": "^4.2.1",
@@ -131,8 +133,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint-staged",
-      "pre-commit": "yarn lint-staged"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "yarn lint-staged",
+      "pre-push": "yarn test"
     }
   },
   "lint-staged": {
