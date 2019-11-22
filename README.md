@@ -11,6 +11,7 @@ This is a **WIP** mainly for myself to try and learn more about building my own 
 This boilerplate uses:
 
 - Babel 7
+- Convict
 - ESLint
 - Jest
 - Koa
