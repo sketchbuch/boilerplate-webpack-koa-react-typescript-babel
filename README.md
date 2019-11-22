@@ -11,10 +11,14 @@ This is a **WIP** mainly for myself to try and learn more about building my own 
 This boilerplate uses:
 
 - Babel 7
+- Commitlint
 - Convict
 - ESLint
+- Husky
 - Jest
 - Koa
+- Lint Staged
+- Standard Release
 - Styled Components
 - Prettier
 - React
