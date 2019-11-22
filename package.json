@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-webpack-koa-react-typescript-babel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Boilerplate for a webpack / koa based universal react app using babel, react-router, redux, styled components and typescript.",
   "homepage": "https://github.com/sketchbuch/boilerplate-webpack-koa-react-typescript-babel",
   "license": "MIT",
