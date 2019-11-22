@@ -1,6 +1,6 @@
 # PR Title
 
-- Link to issue \*
+_Link to issue_
 
 ## Description:
 
