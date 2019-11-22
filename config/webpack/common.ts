@@ -1,4 +1,8 @@
-import webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
+
+export const ROOT_PATH = path.resolve(__dirname, '../../');
+export const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 const isProduction = process.env.NODE_ENV === 'production';
 

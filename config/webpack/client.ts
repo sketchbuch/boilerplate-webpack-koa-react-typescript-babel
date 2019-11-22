@@ -2,11 +2,11 @@ import HtmlwebpackPlugin from 'html-webpack-plugin';
 import merge from 'webpack-merge';
 import path from 'path';
 import webpack from 'webpack';
-import commonConfig from './common';
+import commonConfig, { ROOT_PATH, SRC_PATH } from './common';
+// @ts-ignore
+import packageJson from '../../package.json';
 
-const ROOT_PATH = path.resolve(__dirname, '../../');
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
-const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 const config: webpack.Configuration = merge(commonConfig, {
   entry: [`${SRC_PATH}/client/client.tsx`],
@@ -20,8 +20,7 @@ const config: webpack.Configuration = merge(commonConfig, {
       hash: true,
       template: SRC_PATH.concat('/client/templates/default.html'),
       title: 'Client Title',
-      // version: JSON.stringify(packageJson.version),
-      version: JSON.stringify('1.0.0'),
+      version: JSON.stringify(packageJson.version),
     }),
     new webpack.HotModuleReplacementPlugin(),
   ],
