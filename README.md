@@ -22,6 +22,7 @@ This boilerplate uses:
 - React Router
 - React Testing Library (instead of Enzyme)
 - Redux
+- Serverside Rendering (SSR)
 - StyleLint
 - Typescript
 - Webpack
