@@ -22,3 +22,4 @@ yarn-error.log*
 # Files
 *.code-workspace
 stats.*.json
+audit-report.html

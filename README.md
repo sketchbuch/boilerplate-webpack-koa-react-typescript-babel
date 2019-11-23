@@ -40,12 +40,13 @@ _In no particular order_
 - Fork and replace redux with apollo client
 - Fork the apollo client version and add electron
 - Update this file and other documentaion
+- Add storybook
 
 ## Contributing
 
 - PRs accepted - please don't use no verify to push your commits, if you break a test - fix it before commiting/pushing!
 - Add tests if applicable
-- Increase the version in your feature branch with "yarn release". This will create a version tag and update the change log.
+- Increase the version in your feature branch with "yarn release". This will create a version tag and update the change log. Don't forget to push the tag!
 - Fill out PR template and use the checkboxes provided!
 
 ## Latest version
