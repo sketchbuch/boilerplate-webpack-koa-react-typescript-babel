@@ -6,6 +6,8 @@ import commonConfig, { ROOT_PATH, SRC_PATH } from './common';
 // @ts-ignore
 import packageJson from '../../package.json';
 
+// TODO - NamedModulesPlugin should be only for non-prod
+
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
 
 const config: webpack.Configuration = merge(commonConfig, {
@@ -13,7 +15,7 @@ const config: webpack.Configuration = merge(commonConfig, {
   output: {
     filename: 'js/app.js',
     path: OUTPUT_PATH,
-    publicPath: '/',
+    publicPath: ROOT_PATH,
   },
   plugins: [
     new HtmlwebpackPlugin({
@@ -22,6 +24,7 @@ const config: webpack.Configuration = merge(commonConfig, {
       title: 'Client Title',
       version: JSON.stringify(packageJson.version),
     }),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
 });

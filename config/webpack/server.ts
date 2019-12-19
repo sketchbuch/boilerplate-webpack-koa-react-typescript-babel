@@ -14,8 +14,9 @@ const config: webpack.Configuration = merge(commonConfig, {
     library: 'app',
     libraryTarget: 'commonjs2',
     path: OUTPUT_PATH,
-    publicPath: '/',
+    publicPath: ROOT_PATH,
   },
+  plugins: [new webpack.NamedModulesPlugin()],
   target: 'node',
 });
 
