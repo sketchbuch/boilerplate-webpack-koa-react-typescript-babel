@@ -6,7 +6,12 @@ export { ReduxActionCreator, ReduxAction } from './redux/actions.interface';
 export { State } from './redux/state.interface';
 
 // Server
-export { ServerContext, ServerNext, Placeholders } from './server/server.interface';
+export {
+  KoaWebPackMiddleware,
+  Placeholders,
+  ServerContext,
+  ServerNext,
+} from './server/server.interface';
 
 // Tests
 export { RenderWithRedux, RenderWithReduxOptions } from './tests/renderWithRedux.interface';

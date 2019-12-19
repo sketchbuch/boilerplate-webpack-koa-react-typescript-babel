@@ -27,7 +27,14 @@ const config: webpack.Configuration = {
       },
     ],
   },
+  node: {
+    __filename: true,
+    __dirname: true,
+  },
   resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 };

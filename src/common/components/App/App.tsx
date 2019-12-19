@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
-import { APP_LOADED } from '../../constants/actions';
-import { Props, Store } from './App.interface';
-import { useSelector, useDispatch } from 'react-redux';
-import { ErrorMessage, LoadingMessage, Para, StyledApp } from './App.styles';
 import { Link, Switch, Route } from 'react-router-dom';
+import { hot } from 'react-hot-loader/root';
+import { useSelector, useDispatch } from 'react-redux';
+import { APP_LOADED } from '../../constants/actions';
+import { ErrorMessage, LoadingMessage, Para, StyledApp } from './App.styles';
+import { Props, Store } from './App.interface';
 import { ROUTE_PAGE2, ROUTE_HOME } from '../../constants/routes';
 
 export const Home: React.FC<{}> = () => (
@@ -56,7 +57,7 @@ const App: React.FC<Props> = ({ title }) => {
 
   return (
     <StyledApp>
-      <h1 data-testid="app-title">{title}</h1>
+      <h1 data-testid="app-title">{title} aaaa</h1>
       <Para data-testid="app-description">
         Boilerplate for a webpack / koa based universal react app using babel, react-router, redux,
         and typescript
@@ -77,4 +78,4 @@ const App: React.FC<Props> = ({ title }) => {
   );
 };
 
-export default App;
+export default hot(App);

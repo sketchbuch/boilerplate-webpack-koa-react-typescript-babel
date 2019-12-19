@@ -11,7 +11,7 @@ import packageJson from '../../package.json';
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
 
 const config: webpack.Configuration = merge(commonConfig, {
-  entry: [`${SRC_PATH}/client/client.tsx`],
+  entry: ['react-hot-loader/patch', `${SRC_PATH}/client/client.tsx`],
   output: {
     filename: 'js/app.js',
     path: OUTPUT_PATH,
@@ -25,7 +25,6 @@ const config: webpack.Configuration = merge(commonConfig, {
       version: JSON.stringify(packageJson.version),
     }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 });
 

@@ -7,7 +7,7 @@ import commonConfig, { ROOT_PATH, SRC_PATH } from './common';
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'build');
 
 const config: webpack.Configuration = merge(commonConfig, {
-  entry: [`${SRC_PATH}/server/server.ts`],
+  entry: ['react-hot-loader/patch', `${SRC_PATH}/server/server.ts`],
   externals: [nodeExternals()],
   output: {
     filename: 'server.js',

@@ -1,7 +1,7 @@
 import Koa from 'koa';
+import koaWebpack from 'koa-webpack';
 
-export type ServerContext = Koa.Context;
-export type ServerNext = <T>() => Promise<T>;
+export type KoaWebPackMiddleware = (Koa.Middleware & koaWebpack.CombinedWebpackMiddleware) | null;
 
 export interface Placeholders {
   content: string;
@@ -9,3 +9,6 @@ export interface Placeholders {
   styles: string;
   [key: string]: string;
 }
+
+export type ServerContext = Koa.Context;
+export type ServerNext = <T>() => Promise<T>;

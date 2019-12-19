@@ -1,32 +1,52 @@
-import Koa from 'koa';
+import Koa, { Middleware } from 'koa';
 import helmet from 'koa-helmet';
+import koaWebpack from 'koa-webpack';
 import logger from 'koa-logger';
 import serve from 'koa-static';
-// import webpack from 'webpack';
+import webpack from 'webpack';
+import config from '../../config/convict/';
 import router from './routes';
 import serverInfo from './utils/serverInfo';
-// import webpackConfig from '../../config/webpack/server';
-import { ServerContext, ServerNext } from '../common/types';
-import config from '../../config/convict/';
+import webpackConfig from '../../config/webpack/server';
+import { ServerContext, ServerNext, KoaWebPackMiddleware } from '../common/types';
 
-const ONE_HOUR: number = 60 * 60;
+const isDev = process.env.NODE_ENV === 'development';
+const ONE_HOUR = 60 * 60;
 const app: Koa = new Koa();
-/* const compiler: webpack.Compiler = webpack(webpackConfig);
-const publicPath: string =
-  webpackConfig.output && webpackConfig.output.publicPath
-    ? webpackConfig.output.publicPath
-    : '';
-const filename: string | undefined =
-  webpackConfig.output &&
-  webpackConfig.output.filename &&
-  (webpackConfig.output.filename as string); */
+
+if (isDev) {
+  const compiler = webpack(webpackConfig);
+  const publicPath =
+    webpackConfig.output && webpackConfig.output.publicPath ? webpackConfig.output.publicPath : '';
+
+  app.use(
+    ((options: koaWebpack.Options): Middleware => {
+      let middleware: KoaWebPackMiddleware = null;
+
+      return async (ctx: ServerContext, next: ServerNext): Promise<KoaWebPackMiddleware> => {
+        if (!middleware) {
+          middleware = await koaWebpack(options);
+        }
+
+        return middleware(ctx, next);
+      };
+    })({
+      compiler,
+      config: webpackConfig,
+      devMiddleware: {
+        publicPath,
+        serverSideRender: true,
+      },
+    }),
+  );
+}
 
 // Static files
 app.use(
   serve('./public', {
     gzip: true,
     maxage: ONE_HOUR,
-  })
+  }),
 );
 
 // app.use(middleware(compiler, {}));
