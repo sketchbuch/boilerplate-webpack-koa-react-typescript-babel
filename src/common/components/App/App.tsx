@@ -57,7 +57,7 @@ const App: React.FC<Props> = ({ title }) => {
 
   return (
     <StyledApp>
-      <h1 data-testid="app-title">{title} aaaa</h1>
+      <h1 data-testid="app-title">{title}</h1>
       <Para data-testid="app-description">
         Boilerplate for a webpack / koa based universal react app using babel, react-router, redux,
         and typescript
