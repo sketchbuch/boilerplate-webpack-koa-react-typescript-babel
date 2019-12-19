@@ -12,13 +12,13 @@ const renderWithRedux = (
     initialState = {},
     location = '/',
     store = createStore(reducers, initialState),
-  }: RenderWithReduxOptions = {}
+  }: RenderWithReduxOptions = {},
 ): RenderWithRedux => {
   return {
     ...render(
       <Provider store={store}>
         <TestRouter location={location}>{comp}</TestRouter>
-      </Provider>
+      </Provider>,
     ),
     location,
     store,

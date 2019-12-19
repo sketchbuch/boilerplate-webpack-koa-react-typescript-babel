@@ -9,7 +9,7 @@ export const TestRouter: React.FC<TestRouterProps> = ({ children, location }) =>
 
 const renderWithRouter = (
   comp: React.ReactNode,
-  { location = '/' }: RenderWithRouterOptions = {}
+  { location = '/' }: RenderWithRouterOptions = {},
 ): RenderWithRouter => {
   return {
     ...render(<TestRouter location={location}>{comp}</TestRouter>),

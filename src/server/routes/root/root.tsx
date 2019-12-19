@@ -13,7 +13,7 @@ const router = new Router();
 export const routeCallback = async (ctx: ServerContext): Promise<void> => {
   const sheet: ServerStyleSheet = new ServerStyleSheet();
   const content: string = renderToString(
-    sheet.collectStyles(<Root isSsr location={ctx.request.URL.pathname} />)
+    sheet.collectStyles(<Root isSsr location={ctx.request.URL.pathname} />),
   );
   const styles: string = sheet.getStyleTags();
   const contentState: string = getTemplateState(store.getState());

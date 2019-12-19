@@ -44,7 +44,7 @@ describe('Route: root', () => {
         content,
         contentState: getTemplateState(store.getState()),
         styles: '',
-      })
+      }),
     );
   });
 

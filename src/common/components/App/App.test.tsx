@@ -24,7 +24,7 @@ describe('<App />', () => {
 
   test('Renders loading message', () => {
     const { getByTestId, getByText, queryByTestId, queryByText } = renderWithRedux(
-      <App {...props} />
+      <App {...props} />,
     );
 
     expect(getByTestId('app-loading')).toBeInTheDocument();
@@ -35,7 +35,7 @@ describe('<App />', () => {
 
   test('Renders loaded message after 1 second', async () => {
     const { getByTestId, getByText, queryByTestId, queryByText } = renderWithRedux(
-      <App {...props} />
+      <App {...props} />,
     );
     await wait(
       () => {
@@ -46,7 +46,7 @@ describe('<App />', () => {
       },
       {
         timeout: 1000,
-      }
+      },
     );
   });
 
