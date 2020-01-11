@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { hot } from 'react-hot-loader/root';
 import { Link, Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { APP_LOADED } from '../../constants/actions';
@@ -80,4 +79,4 @@ const App: React.FC<Props> = ({ title }) => {
   );
 };
 
-export default hot(App);
+export default App;

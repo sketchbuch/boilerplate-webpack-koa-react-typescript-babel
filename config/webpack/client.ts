@@ -11,10 +11,7 @@ import packageJson from '../../package.json';
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
 
 const config: webpack.Configuration = merge(commonConfig, {
-  devServer: {
-    hot: true,
-  },
-  entry: ['react-hot-loader/patch', `${SRC_PATH}/client/client.tsx`, 'webpack-hot-middleware/cli'],
+  entry: [`${SRC_PATH}/client/client.tsx`],
   output: {
     filename: 'js/app.js',
     path: OUTPUT_PATH,
