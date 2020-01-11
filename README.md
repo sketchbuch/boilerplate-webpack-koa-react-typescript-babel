@@ -40,7 +40,6 @@ _In no particular order_
 - Fork and replace redux with apollo client
 - Fork the apollo client version and add electron
 - Update this file and other documentation
-- Add storybook
 
 ## Contributing
 
