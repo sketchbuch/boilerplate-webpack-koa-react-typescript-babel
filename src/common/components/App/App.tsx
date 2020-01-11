@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Link, Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
+import { Link, Switch, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { APP_LOADED } from '../../constants/actions';
 import { ErrorMessage, LoadingMessage, Para, StyledApp } from './App.styles';
@@ -55,9 +55,11 @@ const App: React.FC<Props> = ({ title }) => {
     return (): void => clearTimeout(timer);
   }, []);
 
+  console.log('### app');
+
   return (
     <StyledApp>
-      <h1 data-testid="app-title">{title}</h1>
+      <h1 data-testid="app-title">{title} aaaaa</h1>
       <Para data-testid="app-description">
         Boilerplate for a webpack / koa based universal react app using babel, react-router, redux,
         and typescript

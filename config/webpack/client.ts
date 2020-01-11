@@ -11,7 +11,10 @@ import packageJson from '../../package.json';
 const OUTPUT_PATH = path.resolve(ROOT_PATH, 'public/dist');
 
 const config: webpack.Configuration = merge(commonConfig, {
-  entry: ['react-hot-loader/patch', `${SRC_PATH}/client/client.tsx`],
+  devServer: {
+    hot: true,
+  },
+  entry: ['react-hot-loader/patch', `${SRC_PATH}/client/client.tsx`, 'webpack-hot-middleware/cli'],
   output: {
     filename: 'js/app.js',
     path: OUTPUT_PATH,
@@ -24,8 +27,10 @@ const config: webpack.Configuration = merge(commonConfig, {
       title: 'Client Title',
       version: JSON.stringify(packageJson.version),
     }),
-    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin({}),
+    //new webpack.NamedModulesPlugin(),
   ],
+  target: 'web',
 });
 
 export default config;

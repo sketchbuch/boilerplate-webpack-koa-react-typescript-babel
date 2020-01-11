@@ -18,7 +18,7 @@ module.exports = {
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
     "@typescript-eslint/ban-ts-ignore": 0,
-    "comma-dangle": ["warn", "always-multiline"],
+    "comma-dangle": ["warn", "only-multiline"],
     "indent": ["error", 2],
     "react/jsx-uses-vars": 1,
     "react/prop-types": 0

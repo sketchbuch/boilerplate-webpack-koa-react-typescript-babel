@@ -34,6 +34,13 @@ const config: webpack.Configuration = {
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
+      'webpack-hot-client/client': path.resolve(
+        '..',
+        '..',
+        'node_moules',
+        'webpack-hot-client',
+        'client'
+      ),
     },
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },

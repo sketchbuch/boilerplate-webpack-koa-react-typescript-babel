@@ -7,7 +7,7 @@ import webpack from 'webpack';
 import config from '../../config/convict/';
 import router from './routes';
 import serverInfo from './utils/serverInfo';
-import webpackConfig from '../../config/webpack/server';
+import webpackConfig from '../../config/webpack/client';
 import { ServerContext, ServerNext, KoaWebPackMiddleware } from '../common/types';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -37,7 +37,10 @@ if (isDev) {
         publicPath,
         serverSideRender: true,
       },
-    }),
+      hotClient: {
+        autoConfigure: false,
+      },
+    })
   );
 }
 
@@ -46,7 +49,7 @@ app.use(
   serve('./public', {
     gzip: true,
     maxage: ONE_HOUR,
-  }),
+  })
 );
 
 // app.use(middleware(compiler, {}));
