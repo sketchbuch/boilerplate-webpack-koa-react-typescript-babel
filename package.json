@@ -42,7 +42,7 @@
     "test": "jest --config=./config/jest/jest.js"
   },
   "dependencies": {
-    "convict": "^5.2.0",
+    "convict": "^6.2.2",
     "html-webpack-plugin": "^3.2.0",
     "koa": "^2.7.0",
     "koa-combine-routers": "^4.0.2",
